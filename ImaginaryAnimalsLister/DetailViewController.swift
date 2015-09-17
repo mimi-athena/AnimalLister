@@ -32,6 +32,8 @@ class DetailViewController: UIViewController {
             imageView.url = animal.imageURL
         }
         
+        imageView.accessibilityIdentifier = "DetailImageView"
+        
         
     }
     
