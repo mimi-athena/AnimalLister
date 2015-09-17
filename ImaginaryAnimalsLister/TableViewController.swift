@@ -8,6 +8,10 @@
 
 import UIKit
 
+struct MyAnimalsLoader: AnimalsLoader {
+    var url:NSURL? = NSURL(string: "http://charliewilliams.org/SwiftBootcamp/Animals.json")
+}
+
 class TableViewController: UITableViewController {
 
     //deleted
@@ -37,7 +41,7 @@ class TableViewController: UITableViewController {
 //            imageURL: nil)
 //        animalsArray = [testAnimal]
 //        animalsArray = []
-        animalsArray = AnimalsLoader().loadAnimals()
+        animalsArray = MyAnimalsLoader().loadAnimals()
         super.init(coder: aDecoder)
     }
     // MARK: - Table view data source

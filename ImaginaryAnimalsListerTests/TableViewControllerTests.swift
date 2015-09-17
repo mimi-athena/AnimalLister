@@ -9,6 +9,10 @@
 import XCTest
 @testable import ImaginaryAnimalsLister
 
+struct TestAnimalsLoader: AnimalsLoader {
+    var url:NSURL? = NSBundle.mainBundle().URLForResource("Animals", withExtension: "json")
+}
+
 class TableViewControllerTests: XCTestCase {
 
     var tableViewController:TableViewController?
@@ -18,7 +22,7 @@ class TableViewControllerTests: XCTestCase {
     
         tableViewController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("TableViewController") as? TableViewController
         
-        tableViewController?.animalsArray = AnimalsLoader().loadAnimals()
+        tableViewController?.animalsArray = TestAnimalsLoader().loadAnimals()
     }
     
     override func tearDown() {
